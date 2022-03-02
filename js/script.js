@@ -10,24 +10,46 @@ con difficoltà 3 => tra 1 e 49
 
 const select = document.getElementById('levels');
 const mainSquare = document.getElementById('square');
-const play = document.getElementById('btn-play');
+const playButton = document.getElementById('btn-play');
+
+let easySquare = document.querySelector('.easy-square');
+let mediumSquare = document.querySelector('.medium-square');
+let hardSquare = document.querySelector('.hard-square');
+
 
 let box;
+
 let easy = 101;
 let medium = 81;
 let hard = 51;
-// let value = select.options[1].value;
 
-// function easy
-createSquare(box, hard);
+createSquare(box, easy, easySquare);
+createSquare(box, medium, mediumSquare);
+createSquare(box, hard, hardSquare);
+
+
+clickPlay(playButton, easySquare, mediumSquare, hardSquare);
+clickPlay(playButton, mediumSquare, easySquare, hardSquare);
+clickPlay(playButton, hardSquare, mediumSquare, easySquare);
+
+
+// function click add and remove class
+function clickPlay (button, add, remove1, remove2) {
+    button.addEventListener('click', function() {
+        add.classList.add('active')
+        remove1.classList.remove('active')
+        remove2.classList.remove('active')
+    })
+}
+
 
 //function boxes
-function createSquare (element, maxBoxes) {
+function createSquare (element, maxBoxes, square) {
     for (let i = 1; i < maxBoxes; i++) {
         element = document.createElement('div');
         element.classList.add('box');
         element.innerHTML = i;
     
-        mainSquare.append(element);
+        square.append(element);
     }
 }

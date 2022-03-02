@@ -56,12 +56,15 @@ main {
     align-items: center;
 }
 
-#square {
-    display: flex;
+.easy-square,
+.medium-square,
+.hard-square {
     flex-wrap: wrap;
 
     width: 30rem;
+    display: none;
 }
+
 
 /* javascipt class */
 
@@ -74,4 +77,8 @@ main {
     align-items: center;
 
     border: 1px solid black;
+}
+
+.active {
+    display: flex;
 }
