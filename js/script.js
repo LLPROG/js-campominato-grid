@@ -10,15 +10,24 @@ con difficoltà 3 => tra 1 e 49
 
 const select = document.getElementById('levels');
 const mainSquare = document.getElementById('square');
+const play = document.getElementById('btn-play');
 
 let box;
+let easy = 101;
+let medium = 81;
+let hard = 51;
 // let value = select.options[1].value;
 
-for (let i = 1; i < 101; i++) {
-    box = document.createElement('div');
-    box.classList.add('box');
-    box.innerHTML = i;
+// function easy
+createSquare(box, hard);
 
-    mainSquare.append(box);
-
+//function boxes
+function createSquare (element, maxBoxes) {
+    for (let i = 1; i < maxBoxes; i++) {
+        element = document.createElement('div');
+        element.classList.add('box');
+        element.innerHTML = i;
+    
+        mainSquare.append(element);
+    }
 }
