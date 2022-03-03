@@ -53,29 +53,18 @@ main {
     align-items: center;
 }
 
-
-/* .easy-square,
-.medium-square,
-.hard-square {
-    display: none;
-
-    flex-wrap: wrap;
-    width: 30rem;
-    height: 30rem;
-
-} */
-
 #square {
 
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
 
     width: 500px;
     height: 500px;
 
+    outline: 2px solid black;
 }
-
-
 
 /* javascipt class */
 
@@ -84,9 +73,17 @@ main {
     justify-content: center;
     align-items: center;
 
-    border: 1px solid black;
+    outline: 0.5px solid black;
+    cursor: cell;
 }
 
-/* .active {
-    display: flex;
-} */
+.box.selected-save {
+    background: white;
+
+}
+
+
+.box.selected-bomb {
+    background: black;
+
+}

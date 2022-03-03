@@ -19,27 +19,55 @@ playButton.addEventListener('click', setupGame);
 function setupGame() {
 
     mainSquare.innerHTML = '';
+
     const indexLevels = parseInt(select.value);
 
     const cellsCount = arrLevels[indexLevels];
 
     const cellParRow = Math.sqrt(cellsCount);
 
-    for (let cellNum = 1; cellNum <= cellsCount; cellNum++) {
-        console.log(cellNum);
+    let box;
 
-        let box = document.createElement('div');
+    let arr = [];
+
+    let i = 0;
+
+    while (i < 17) {
+        let randomNumber = Math.floor(Math.random() * (cellsCount - 1) + 1);
+        if (!arr.includes(randomNumber)) {
+            arr.push(randomNumber)
+            i++
+        }
+    }
+
+    console.log(arr)
+
+    for (let cellNum = 1; cellNum <= cellsCount; cellNum++) {
+
+        box = document.createElement('div');
         box.classList.add('box');
-        box.append(cellNum);
+        box.innerHTML = cellNum
         box.style.width = `calc(100% / ${cellParRow})`;
         box.style.height = `calc(100% / ${cellParRow})`;
 
+        mainSquare.append(box);
 
-        // box.addEventListener('click', changeColor);
-    
-        square.append(box);
+        box.addEventListener('click', changeColor);
+        
     }
 
+    function changeColor() {
+
+        if(!arr.includes(parseInt(this.innerHTML))) {
+            this.classList.add('selected-save');
+        } else {
+            this.classList.add('selected-bomb');
+        }
+
+    } 
+   
 }
+
+
 
 
